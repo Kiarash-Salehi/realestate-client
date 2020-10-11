@@ -1,0 +1,120 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.auth__contaier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  overflow: hidden;
+}
+
+.auth__forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform .3s;
+}
+
+.auth__formContainer {
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform .3s;
+  background-color: #fff;
+}
+
+.auth__label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.auth__input {
+  padding: .5rem;
+  margin: .2rem 0;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid black;
+  position: relative;
+  margin-bottom: 1rem;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: rgb(79, 219, 201);
+  border-radius: 5px;
+}
+
+.auth__formContainer form label:focus::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: blue;
+  color: blue;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+}
+
+.auth__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.auth__btns span {
+  background-color: rgb(233, 229, 12);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -100000;
+  border-radius: 50px 0 0 50px;
+  transition: all .3s;
+}
+
+.auth__btn {
+  padding: .5rem;
+  /* margin: 0 .3rem; */
+  background: transparent;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: opacity .3s;
+  border: 1.5px solid rgb(233, 229, 12);
+}
+
+.auth__btn:nth-child(2) {
+  border-radius: 50px 0 0 50px;
+}
+
+.auth__btn:nth-child(1) {
+  border-radius: 0 50px 50px 0;
+}
+
+.auth__btn:hover {
+  opacity: .8;
+}
+
+.ma {
+  width: 100%;
+  margin: .3rem auto;
+  background-color: rgb(233, 229, 12);
+}
