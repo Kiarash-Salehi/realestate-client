@@ -25,11 +25,11 @@
 }
 
 .messages__message.success {
-  background-color: #D4EDDA;
+  background-color: #1fbe4479;
 }
 
 .messages__message.error {
-  background-color: rgba(240, 48, 35, 0.7);
+  background-color: rgba(240, 49, 35, 0.521);
 }
 
 .messages__message>small {

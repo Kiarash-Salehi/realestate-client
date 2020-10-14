@@ -5,7 +5,10 @@ function NotFound() {
   return (
     <div>
       <Header />
-      <h1>Not Found</h1>
+      <div className="center">
+        <div className="fsb">¯\_(ツ)_/¯</div>
+        <div className="fsb">ببخشید ولی صفحه مورد نظر یافت نشد.</div>
+      </div>
     </div>
   );
 }

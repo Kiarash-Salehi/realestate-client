@@ -22,20 +22,18 @@ export const loadUser = () => (dispatch, getState) => {
       const config = {
         headers: {
           "Content-type": "application/json",
-          "Authorization": `Bearer ${token}`
+          "Authorization": token
         }
       };
       axios.get('/auth/user', config)
         .then(res => {
+          console.log(res);
+          setMessage('شما با موفقیت وارد حساب کاربری خود شدید.', res.status, messagesLength, dispatch);
           dispatch({
-            type: 'LOGIN_USER',
-            payload: {
-              token,
-              user: res.data
-            }
+            type: 'LOAD_USER',
+            payload: res.data
           });
-        })
-        .catch(err => { setMessage(err.response.data.message || err.response.data.error, err.response.status, messagesLength, dispatch); });
+        });
     }
   }
 };
@@ -61,6 +59,8 @@ export const register = (username, email, password, password2) => (dispatch, get
 };
 
 const setMessage = (message, status, id, dispatch) => {
+  console.log(id);
+  if (!id) id = new Date().getTime();
   setTimeout(() => {
     dispatch({ type: 'CLEAR_MESSAGE', payload: { id } });
   }, 4000);

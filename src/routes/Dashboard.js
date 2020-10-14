@@ -14,7 +14,7 @@ function Dashboard() {
   const logoutForm = e => {
     e.preventDefault();
     dispatch(logout());
-    history.push('/');
+    history.push('/authenticate');
   };
   return (
     <div>

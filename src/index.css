@@ -28,6 +28,10 @@ a:-webkit-any-link {
   overflow: hidden;
 }
 
+.fsb {
+  font-size: 2rem;
+}
+
 .center h1 {
   margin-bottom: 1rem;
 }

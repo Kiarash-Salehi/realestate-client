@@ -15,8 +15,8 @@ function Login({ show }) {
 	return (
 		<div className="auth__formContainer">
 			<form onSubmit={loginForm}>
-				<label class="auth__label"> ایمیل:<br /> <input className="auth__input" type="email" name="email" value={email} onChange={e => { setEmail(e.target.value) }} /></label>
-				<label class="auth__label"> رمز عبور:<br /> <input className="auth__input" type="password" name="password" value={password} onChange={e => { setPassword(e.target.value) }} /></label>
+				<label className="auth__label"> ایمیل:<br /> <input placeholder="ایمیل" className="auth__input" type="email" name="email" value={email} onChange={e => { setEmail(e.target.value) }} /></label>
+				<label className="auth__label"> رمز عبور:<br /> <input placeholder="رمز عبور" className="auth__input" type="password" name="password" value={password} onChange={e => { setPassword(e.target.value) }} /></label>
 				<button type="submit" className="auth__btn ma">Log In</button>
 			</form>
 		</div>

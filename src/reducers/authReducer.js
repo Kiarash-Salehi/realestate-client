@@ -11,7 +11,14 @@ export default (state = initialState, action) => {
       return {
         token: action.payload.token,
         isAuthenticated: true,
-        user: action.payload.user.user
+        user: action.payload.user
+      };
+    case 'LOAD_USER':
+      console.log(action.payload);
+      return {
+        token: state.token,
+        isAuthenticated: true,
+        user: action.payload.user
       };
     case 'LOGOUT_USER':
       localStorage.removeItem('Authorization_token');
