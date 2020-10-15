@@ -7,7 +7,6 @@ function Header() {
   const user = useSelector(state => state.user);
   const openNav = () => {
     const navItemsContainer = document.getElementsByClassName('nav__items');
-    const nav = document.getElementsByClassName('nav');
     navItemsContainer[0].classList.toggle('nav__active');
   };
   return (
