@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { register } from '../actions/authAction';
 import './Authentication.css';
 
-function Register({ show }) {
+function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');

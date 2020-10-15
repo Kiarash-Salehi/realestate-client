@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 function Header() {
   const user = useSelector(state => state.user);
   const openNav = () => {
-    const navItemsContainer = document.getElementsByClassName('nav__items');
-    navItemsContainer[0].classList.toggle('nav__active');
+    const nav = document.getElementsByClassName('nav');
+    nav[0].classList.toggle('nav__active');
   };
   return (
     <nav className="nav">
@@ -18,6 +18,7 @@ function Header() {
         <span></span>
       </div>
       <div className="nav__items">
+        <i class="fas fa-times nav__close" onClick={openNav}></i>
         <Link to="/"><div className="nav__item">صفحه اصلی</div></Link>
         <Link to="/listings"><div className="nav__item">لیست خانه ها</div></Link>
         <Link to="/aboutus"><div className="nav__item">درباره ما</div></Link>

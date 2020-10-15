@@ -33,6 +33,10 @@
   background-color: rgba(240, 49, 35, 0.521);
 }
 
+.messages__message.messages__closed {
+  animation: close-message ease-in-out .3s forwards;
+}
+
 .messages__message>small {
   position: absolute;
   right: 5px;
@@ -57,6 +61,18 @@
   }
 
   80% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes close-message {
+  0% {
     transform: translateX(0);
     opacity: 1;
   }

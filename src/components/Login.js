@@ -3,7 +3,7 @@ import { login } from '../actions/authAction';
 import { useDispatch } from 'react-redux';
 import './Authentication.css';
 
-function Login({ show }) {
+function Login() {
 	document.title = 'مشاورین املاک نارمک';
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
