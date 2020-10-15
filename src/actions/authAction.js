@@ -1,4 +1,5 @@
 import axios from '../api/api';
+import { setMessage } from './messagesAction';
 
 export const login = (email, password) => (dispatch, getState) => {
   const messagesLength = getState().messages.messages.length;
@@ -18,7 +19,6 @@ export const loadUser = () => (dispatch, getState) => {
   if (!isAuthenticated) {
     const token = getState().user.token;
     if (token) {
-      const messagesLength = getState().messages.messages.length;
       const config = {
         headers: {
           "Content-type": "application/json",
@@ -27,8 +27,6 @@ export const loadUser = () => (dispatch, getState) => {
       };
       axios.get('/auth/user', config)
         .then(res => {
-          console.log(res);
-          setMessage('شما با موفقیت وارد حساب کاربری خود شدید.', res.status, messagesLength, dispatch);
           dispatch({
             type: 'LOAD_USER',
             payload: res.data
@@ -56,18 +54,4 @@ export const register = (username, email, password, password2) => (dispatch, get
       });
     })
     .catch(err => { setMessage(err.response.data.message || err.response.data.error, err.response.status, messagesLength, dispatch); });
-};
-
-const setMessage = (message, status, id, dispatch) => {
-  console.log(id);
-  if (!id) id = new Date().getTime();
-  setTimeout(() => {
-    dispatch({ type: 'CLEAR_MESSAGE', payload: { id } });
-  }, 4000);
-  dispatch({
-    type: 'SET_MESSAGES',
-    payload: {
-      message: { message, status, id }
-    }
-  });
 };

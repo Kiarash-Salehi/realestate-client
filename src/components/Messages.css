@@ -18,10 +18,11 @@
   bottom: 0;
   margin-bottom: 15px;
   margin-left: 15px;
-  animation: show-message ease-in-out 4s;
+  animation: show-message ease-in-out 4s forwards;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100000000000;
 }
 
 .messages__message.success {

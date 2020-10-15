@@ -1,5 +1,6 @@
-/* body {
+body {
   overflow-x: hidden;
   overflow-y: auto;
   direction: rtl;
-} */
+  min-height: 100vh;
+}

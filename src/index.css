@@ -9,6 +9,8 @@
   box-sizing: border-box;
   direction: rtl;
   font-family: iranSans, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 a:-webkit-any-link {
