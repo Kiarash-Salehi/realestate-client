@@ -7,7 +7,7 @@ function NotFound() {
       <Header />
       <div className="center">
         <div className="fsb">¯\_(ツ)_/¯</div>
-        <div className="fsb">ببخشید ولی صفحه مورد نظر یافت نشد.</div>
+        <div className="fsb">صفحه مورد نظر یافت نشد.</div>
       </div>
     </div>
   );
