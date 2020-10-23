@@ -14,7 +14,6 @@ export default (state = initialState, action) => {
         user: action.payload.user
       };
     case 'LOAD_USER':
-      console.log(action.payload);
       return {
         token: state.token,
         isAuthenticated: true,

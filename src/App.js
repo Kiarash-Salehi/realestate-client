@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import './styles/App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loadUser } from './actions/authAction';
 import Home from './routes/Home';
 import Messages from './components/Messages';
@@ -11,16 +11,23 @@ import AboutUs from './routes/AboutUs';
 import Listings from './routes/Listings';
 import ContactUs from './routes/ContactUs';
 import NotFound from './routes/NotFound';
+import PreLoader from './components/PreLoader';
 
 const App = () => {
 	const dispatch = useDispatch();
+	const showLoader = useSelector(state => state.showLoader).showLoader;
 	useEffect(() => {
 		dispatch(loadUser());
+		// window.addEventListener('load', () => dispatch({ type: 'HIDELOADER' }));
+		// return () => {
+		// 	window.removeEventListener('load');
+		// };
 		// eslint-disable-next-line
 	}, []);
 	return (
 		<>
 			<Messages />
+			{showLoader ? <PreLoader style={{ opacity: 1 }} /> : <PreLoader style={{ opacity: 0, userSelect: 'none', pointerEvents: 'none' }} />}
 			<Router>
 				<Switch>
 					<Route exact path="/" component={Home} />

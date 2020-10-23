@@ -1,6 +1,6 @@
 @font-face {
   font-family: iranSans;
-  src: url('./components/IranianSans.ttf');
+  src: url('./IranianSans.ttf');
 }
 
 * {
@@ -28,6 +28,12 @@ a:-webkit-any-link {
   top: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
+}
+
+button {
+  outline: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .fsb {

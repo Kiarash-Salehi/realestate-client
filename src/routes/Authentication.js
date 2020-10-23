@@ -4,7 +4,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import '../components/Authentication.css';
+import '../styles/Authentication.css';
 
 function Authentication() {
   document.title = 'مشاورین املاک نارمک';

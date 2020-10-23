@@ -12,6 +12,7 @@
 
 .nav__logo {
   margin: .3rem .3rem;
+  user-select: none;
 }
 
 .nav__items {
@@ -25,6 +26,7 @@
   padding: .5rem;
   transition: opacity .3s;
   position: relative;
+  user-select: none;
 }
 
 .nav__items .nav__item:hover {

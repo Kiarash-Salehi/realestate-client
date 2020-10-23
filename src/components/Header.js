@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import '../styles/Header.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -18,12 +18,12 @@ function Header() {
         <span></span>
       </div>
       <div className="nav__items">
-        <i class="fas fa-times nav__close" onClick={openNav}></i>
+        <i className="fas fa-times nav__close" onClick={openNav}></i>
         <Link to="/"><div className="nav__item">صفحه اصلی</div></Link>
         <Link to="/listings"><div className="nav__item">لیست خانه ها</div></Link>
         <Link to="/aboutus"><div className="nav__item">درباره ما</div></Link>
         <Link to="/contactus"><div className="nav__item">ارتباط با ما</div></Link>
-        {user.isAuthenticated ? <Link to="/dashboard"><div className="nav__item">داشبورد</div></Link> : <Link to="/authenticate"><div className="nav__item">ورود به حساب کاربری</div></Link>}
+        {user.isAuthenticated ? <Link to="/dashboard"><div className="nav__item">داشبورد</div></Link> : <Link to="/authenticate"><div className="nav__item">ورود/ثبت نام</div></Link>}
       </div>
     </nav>
   );

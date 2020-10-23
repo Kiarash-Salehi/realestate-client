@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../actions/authAction';
 import { useDispatch } from 'react-redux';
-import './Authentication.css';
+import '../styles/Authentication.css';
 
 function Login() {
 	document.title = 'مشاورین املاک نارمک';
