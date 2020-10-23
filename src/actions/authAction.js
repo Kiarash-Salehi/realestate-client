@@ -1,6 +1,5 @@
 import axios from '../api/api';
 import { setMessage } from './messagesAction';
-import { hideLoader } from './loaderAction';
 
 export const login = (email, password) => (dispatch, getState) => {
   dispatch({ type: 'SHOWLOADER' });
