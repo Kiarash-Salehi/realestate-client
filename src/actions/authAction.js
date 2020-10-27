@@ -7,13 +7,16 @@ export const login = (email, password) => (dispatch, getState) => {
   axios.post('/auth/login', { email, password })
     .then(res => {
       setMessage(res.data.message, res.status, messagesLength, dispatch);
-      dispatch({ type: 'HIDELOADER' });
       dispatch({
         type: 'LOGIN_USER',
         payload: res.data
       });
+      dispatch({ type: 'HIDELOADER' });
     })
-    .catch(err => { dispatch({ type: 'HIDELOADER' }); setMessage(err.response.data.error, err.response.status, messagesLength, dispatch); });
+    .catch(err => {
+      dispatch({ type: 'HIDELOADER' });
+      setMessage(err.response.data.error || err.message, err.response.status, messagesLength, dispatch);
+     });
 };
 
 export const loadUser = () => (dispatch, getState) => {
@@ -30,11 +33,11 @@ export const loadUser = () => (dispatch, getState) => {
       };
       axios.get('/auth/user', config)
         .then(res => {
-          dispatch({ type: 'HIDELOADER' });
           dispatch({
             type: 'LOAD_USER',
             payload: res.data
           });
+          dispatch({ type: 'HIDELOADER' });
         })
         .catch(() => dispatch({ type: 'HIDELOADER' }));
     } else dispatch({ type: 'HIDELOADER' });
@@ -54,11 +57,14 @@ export const register = (username, email, password, password2) => (dispatch, get
   axios.post('/auth/register', { username, email, password, password2 })
     .then(res => {
       setMessage(res.data.message, res.status, messagesLength, dispatch);
-      dispatch({ type: 'HIDELOADER' });
       dispatch({
         type: 'REGISTER_USER',
         payload: res.data
       });
+      dispatch({ type: 'HIDELOADER' });
     })
-    .catch(err => { dispatch({ type: 'HIDELOADER' }); setMessage(err.response.data.message || err.response.data.error, err.response.status, messagesLength, dispatch); });
+    .catch(err => {
+      dispatch({ type: 'HIDELOADER' });
+      setMessage(err.message || err.response.data.message || err.response.data.error, err.response.status, messagesLength, dispatch);
+    });
 };

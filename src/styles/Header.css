@@ -102,7 +102,7 @@
   }
 
   .nav.nav__active .nav__items {
-    z-index: 1000000000;
+    z-index: 999;
     right: 0;
   }
 }
