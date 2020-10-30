@@ -16,7 +16,7 @@
   margin-top: .5rem;
   background-color: rgba(97, 97, 97, 0.664);
   padding: 1rem;
-  border-radius: 10rem;
+  border-radius: 5px;
   height: 5rem;
   height: fit-content;
   /* visibility: hidden;
@@ -32,10 +32,15 @@
 }
 
 .home__hero .home__searchSection .home__searchOptionButtons button {
-  padding: .2rem;
-  border-radius: 10rem;
-  margin: .2rem .4rem;
-  background-color: #17CE30;
+  padding: .3rem;
+  margin: .3rem .4rem;
+  height: 2rem;
+  background: transparent;
+  transition: all .3s;
+}
+
+.home__hero .home__searchSection .home__searchOptionButtons button:hover {
+  opacity: .7;
 }
 
 .home__searchInput {
@@ -51,31 +56,80 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: .3rem;
 }
-
-/* .home__searchForm form label {
-  position: relative;
-}
-
-.home__searchForm form label .home__searchDropdown {
-  position: absolute;
-  bottom: -100%;
-} */
 
 .home__submitBtn {
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  background: transparent;
   display: grid;
   margin: 0 .2rem;
   place-items: center;
 }
-
-.home__searchInput:nth-child(2) {
+.home__searchInputSection {
+  position: relative;
+}
+.home__searchInput.home__searchInput2 {
   border-radius: 10rem 0 0 10rem;
   border-right: 1px solid black;
 }
 
-.home__searchInput:nth-child(1) {
+.home__searchInput.home__searchInput1 {
   border-radius: 0 10rem 10rem 0;
+}
+
+.home__searchAutocomplete {
+  width: 100%;
+  max-height: 100px;
+  height: fit-content;
+  position: absolute;
+  overflow-y: scroll;
+  background-color: #fff;
+  border-radius: 5px;
+  animation: show-autocomplete linear .3s forwards;
+  margin-top: 5px;
+}
+
+.home__autocompleteItem {
+  border-bottom: 1px solid rgb(94, 82, 82);
+  padding: .2rem;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.home__autocompleteItem:hover {
+  opacity: .7;
+}
+
+.home__searchAutocomplete::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes show-autocomplete {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home__searchSection {
+    width: 80%;
+  }
+
+  .home__searchInput {
+    width: 100%;
+  }
 }

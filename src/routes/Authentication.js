@@ -13,8 +13,9 @@ function Authentication() {
   if (isAuthenticated) history.push('/dashboard');
   const [login, setLogin] = useState(true);
   return (
+    <>
+    <Header />
     <div className="auth">
-      <Header />
       <div className="auth__btns">
         <button className="auth__btn" onClick={() => setLogin(true)}>Log In</button>
         <button className="auth__btn" onClick={() => setLogin(false)}>Register</button>
@@ -31,6 +32,7 @@ function Authentication() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

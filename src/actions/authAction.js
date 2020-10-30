@@ -3,10 +3,9 @@ import { setMessage } from './messagesAction';
 
 export const login = (email, password) => (dispatch, getState) => {
   dispatch({ type: 'SHOWLOADER' });
-  const messagesLength = getState().messages.messages.length;
   axios.post('/auth/login', { email, password })
     .then(res => {
-      setMessage(res.data.message, res.status, messagesLength, dispatch);
+      setMessage(res?.data?.message || res?.message, dispatch);
       dispatch({
         type: 'LOGIN_USER',
         payload: res.data
@@ -15,8 +14,8 @@ export const login = (email, password) => (dispatch, getState) => {
     })
     .catch(err => {
       dispatch({ type: 'HIDELOADER' });
-      setMessage(err.response.data.error || err.message, err.response.status, messagesLength, dispatch);
-     });
+      setMessage(err?.response?.data?.error || err?.message, dispatch);
+    });
 };
 
 export const loadUser = () => (dispatch, getState) => {
@@ -44,19 +43,17 @@ export const loadUser = () => (dispatch, getState) => {
   } else dispatch({ type: 'HIDELOADER' });
 };
 
-export const logout = () => (dispatch, getState) => {
-  const messagesLength = getState().messages.messages.length;
+export const logout = () => (dispatch) => {
   const msg = 'با موفقیت از حساب کاربری خود خارج شدید.';
-  setMessage(msg, 203, messagesLength, dispatch);
+  setMessage(msg, dispatch);
   dispatch({ type: 'LOGOUT_USER' });
 };
 
-export const register = (username, email, password, password2) => (dispatch, getState) => {
+export const register = (username, email, password, password2) => (dispatch) => {
   dispatch({ type: 'SHOWLOADER' });
-  const messagesLength = getState().messages.messages.length;
   axios.post('/auth/register', { username, email, password, password2 })
     .then(res => {
-      setMessage(res.data.message, res.status, messagesLength, dispatch);
+      setMessage(res?.data?.message || res?.message, dispatch);
       dispatch({
         type: 'REGISTER_USER',
         payload: res.data
@@ -65,6 +62,6 @@ export const register = (username, email, password, password2) => (dispatch, get
     })
     .catch(err => {
       dispatch({ type: 'HIDELOADER' });
-      setMessage(err.message || err.response.data.message || err.response.data.error, err.response.status, messagesLength, dispatch);
+      setMessage(err?.response?.data?.message || err?.response?.data?.error || err?.message, dispatch);
     });
 };

@@ -1,28 +1,27 @@
-import cities from './allCities';
+import Providences from './allCities';
 
-export const findeOneCity = (input) => {
+export const findProvidence = (input) => {
   if (input) {
     const regex = new RegExp(input, 'gi');
     const matches = [];
-    for (let city in cities) {
+    for (let city in Providences) {
       if (city.match(regex)) {
         matches.push(city);
       }
     }
-    console.log(matches);
-  }
+    return matches;
+  } else return [];
 };
 
-export const findArea = (city, input) => {
+export const findOneCity = (Providence, input) => {
   if (input) {
     const regex = new RegExp(input, 'gi');
-    console.log(city);
     const matches = [];
-    for (let area of cities[city]) {
-      if (area.match(regex)) {
-        matches.push(area);
+    for (let city of Providences[Providence]) {
+      if (city.match(regex)) {
+        matches.push(city);
       }
     }
-    console.log(matches);
-  }
+    return matches;
+  } else return [];
 };
